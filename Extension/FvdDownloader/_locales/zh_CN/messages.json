@@ -1,0 +1,69 @@
+{
+   "extension_description": {
+      "description": "Description of this extension",
+      "message": "FVD Downloader"
+   },
+   "extension_hint": {
+      "description": "Tooltip for main button",
+      "message": "\u70B9\u51FB\u4E0B\u8F7D\u5A92\u4F53"
+   },
+   "extension_locale": {
+      "description": "For internal usage",
+      "message": "zh_CN"
+   },
+   "extension_title": {
+      "description": "Title of this extension",
+      "message": "FVD Downloader"
+   },
+   "noyoutube_message": {
+      "message": "\u7531\u4E8E\u8C37\u6B4C\u7F51\u7AD9\u653F\u7B56\uFF0C\u60A8\u65E0\u6CD5\u4E0B\u8F7D\u3002"
+   },
+   "popup_download_button": {
+      "description": "Download button for multiple downloads",
+      "message": "\u4E0B\u8F7D"
+   },
+   "popup_founded_media": {
+      "description": "Title for founded media",
+      "message": "\u5DF2\u8BC6\u522B\u7684\u5A92\u4F53\u6587\u4EF6\uFF1A"
+   },
+   "popup_get_download_url": {
+      "description": "Single download button title",
+      "message": "\u4E0B\u8F7D\u6B64\u5A92\u4F53"
+   },
+   "popup_help_converter": {
+      "description": "Title for video converter link",
+      "message": "Video Converter"
+   },
+   "popup_help_feedback": {
+      "description": "Title for feedback link",
+      "message": "\u53CD\u9988"
+   },
+   "popup_help_help": {
+      "description": "Title for help link",
+      "message": "\u5E2E\u52A9"
+   },
+   "popup_media_not_found": {
+      "description": "Title for pages without media",
+      "message": "\u627E\u4E0D\u5230\u5A92\u4F53\u4E0B\u8F7D\u3002"
+   },
+   "popup_root_media": {
+      "description": "Title for error of supported sites",
+      "message": "\u4E0B\u8F7D\u529F\u80FD\u65E0\u6CD5\u8BBF\u95EE\u7AD9\u70B9\u7684\u6839\u3002"
+   },
+   "popup_search_button": {
+      "description": "Search button title",
+      "message": "\u641C\u7D22"
+   },
+   "popup_searching_media": {
+      "description": "Title for searching media",
+      "message": "\u641C\u7D22\u5A92\u4F53\u4E0B\u8F7D\u2026"
+   },
+   "vk_download_video": {
+      "description": "Download link for VK Video",
+      "message": "\u4E0B\u8F7D\u5A92\u4F53"
+   },
+   "vk_download_video_hd": {
+      "description": "Download link for VK Video HD",
+      "message": "\u4E0B\u8F7DHD"
+   }
+}

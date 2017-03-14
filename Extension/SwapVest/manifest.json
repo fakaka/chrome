@@ -1,0 +1,48 @@
+﻿{
+    "name": "打投组贴心小马甲",
+    "version": "0.6.2",
+    "manifest_version": 2,
+    "description": "Chrome浏览器小马甲",
+    "browser_action": {
+        "default_title": "发卡~",
+        "default_icon": "icon.png",
+        "default_popup": "popup.html"
+    },
+    "options_page": "options.html",
+    "permissions": [
+        "tabs",
+        "notifications",
+        "cookies",
+        "https://*/*",
+        "http://*/*"
+    ],
+    "icons": {
+        "16": "icon.png",
+        "48": "img/icon_48.png"
+    },
+    "background": {
+        "scripts": [
+            "js/background.js"
+        ]
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "*://weibo.com/*",
+                "*://chart.weibo.com/*",
+                "*://*.baidu.com/*",
+                "*://www.xunyee.cn/*"
+            ],
+            "js": [
+                "js/jquery-2.2.0.min.js",
+                "js/content-script.js",
+                "js/rank.js",
+                "js/baike.js",
+                "js/xunyee.js",
+                "js/tieba.js",
+                "js/forward.js",
+                "js/controller.js"
+            ]
+        }
+    ]
+}
