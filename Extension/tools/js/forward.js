@@ -7,7 +7,7 @@ var newDiv =
     `<div style="width:${divWidth}px;margin:0 auto;margin-top:10px;background: #fff;color: #444;border: 1px solid #e5e9ef;border-radius: 4px;">
         <div style="padding:5px;">
             <img id="mCover" src ="${picUrl}" width="200px" style="border:1px solid #e5e9ef;border-radius:3px;"/>
-            <a id="downloadVideo" href="javascript:void(0)">下载视频</a>
+            <a id="downloadVideo" href="javascript:void(0)" class="bpui-button button">下载视频</a>
         </div>
     </div>`;
 before.after(newDiv);

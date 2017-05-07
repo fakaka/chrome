@@ -2,7 +2,8 @@
     "name": "打投组贴心小马甲",
     "version": "0.6.2",
     "manifest_version": 2,
-    "description": "Chrome浏览器小马甲",
+    "description": "Chrome浏览器的小马甲",
+    // "update_url": "http://138.128.223.28:3000/",
     "browser_action": {
         "default_title": "发卡~",
         "default_icon": "icon.png",

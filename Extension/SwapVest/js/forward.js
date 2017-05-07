@@ -1,7 +1,7 @@
 function forward(data) {
-    var i = 0;
-    var mid = data.mid;
-    var len = data.contents.length;
+    var i = 0
+    var mid = data.mid
+    var len = data.contents.length
     setInterval(function () {
         var _data = {
             appkey: "",
@@ -18,8 +18,8 @@ function forward(data) {
             data: _data,
             dataType: "json",
             success: function (res) {
-                console.log(res.msg + i);
+                console.log(res.msg + i)
             }
-        });
-    }, 3500);
+        })
+    }, 3500)
 }

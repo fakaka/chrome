@@ -3,19 +3,22 @@
 
 <head>
     <title>弹出菜单</title>
-    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="./css/bootstrap.min.css" />
     <style type="text/css">
-    body{
-        width: 480px;
-    }
-    #message{
-        padding: 5px;
-    }
+        body {
+            width: 540px;
+        }
+
+        #message {
+            padding-top: 8px;
+            padding-bottom: 5px;
+        }
     </style>
 </head>
 
 <body>
-    <table class="table table-hover"><!--table-condensed-->
+    <table class="table table-hover">
+        <!--table-condensed-->
         <caption>帐号列表</caption>
         <thead>
             <tr>
@@ -54,11 +57,12 @@
         </tbody>
     </table>
 
-    <button class="btn btn-success" id="rank">明星势力榜</button>
-    <button class="btn btn-success" id="xunyee">寻艺签到</button>
-    <button class="btn btn-success" id="baike">送花和签到</button>
-    <button class="btn btn-success" id="forward">势力榜转发</button>
-    <button class="btn btn-success" id="choose" title="选择当前微博为要转发的微博">选定转发博</button>
+    <button class="btn btn-success" id="rank">势力榜</button>
+    <button class="btn btn-success" id="xunyee">寻艺</button>
+    <button class="btn btn-success" id="baike">送花签到</button>
+    <button class="btn btn-success" id="forward">转发</button>
+    <button class="btn btn-success" id="choose" title="选择当前微博为要转发的微博">选定微博</button>
+    <button class="btn btn-success" id="bilibili" title="">自动播放</button>
 
     <!--<button class="btn btn-success" id="tieba">测试</button>-->
 
