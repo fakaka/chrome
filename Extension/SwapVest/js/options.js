@@ -58,7 +58,7 @@ function initEvent() {
             var kid = localStorage.getItem("kid")
             var data = { kid: kid }
             $.ajax({
-                url: 'http://localhost:3000/sign',
+                url: 'http://120.25.92.185:3000/sign',
                 type: 'GET',
                 data: data,
                 success: function (res) {

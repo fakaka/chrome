@@ -99,8 +99,8 @@ function initLocalStorage() {
     var sid = localStorage.getItem("sid")
     if (!sid) {
         $.ajax({
-            // url: "http://120.25.92.185:3000/sign/sid",
-            url: "http://localhost:3000/sign/sid",
+            url: "http://120.25.92.185:3000/sign/sid",
+            // url: "http://localhost:3000/sign/sid",
             type: "GET",
             dataType: "json",
             success: function (res) {

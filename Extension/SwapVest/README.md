@@ -1,6 +1,6 @@
 # Chrome 扩展  
 可以换马甲
-
+https://git.oschina.net/hairpin/chrome.git
 
 ## TODO
 * ~~使用vue？？？~~ (CSP安全策略不允许，以及需要预编译支持ES6)
