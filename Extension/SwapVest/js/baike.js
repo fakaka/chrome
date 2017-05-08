@@ -45,6 +45,7 @@ function tieba_sign() {
                 if (res.error) {
                     console.log(res);
                 }
+                sendMessage('baidu')
             }
         });
     });

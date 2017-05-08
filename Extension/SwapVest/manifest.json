@@ -1,6 +1,6 @@
 ﻿{
     "name": "打投组贴心小马甲",
-    "version": "0.6.2",
+    "version": "0.7.0",
     "manifest_version": 2,
     "description": "Chrome浏览器的小马甲",
     // "update_url": "http://138.128.223.28:3000/",
@@ -11,11 +11,14 @@
     },
     "options_page": "options.html",
     "permissions": [
+        "https://*/*",
+        "http://*/*",
         "tabs",
         "notifications",
         "cookies",
-        "https://*/*",
-        "http://*/*"
+        "webRequest",
+        "downloads",
+        "contextMenus"
     ],
     "icons": {
         "16": "icon.png",
@@ -23,6 +26,7 @@
     },
     "background": {
         "scripts": [
+            "js/jquery-2.2.0.min.js",
             "js/background.js"
         ]
     },
@@ -32,7 +36,8 @@
                 "*://weibo.com/*",
                 "*://chart.weibo.com/*",
                 "*://*.baidu.com/*",
-                "*://www.xunyee.cn/*"
+                "*://www.xunyee.cn/*",
+                "*://www.bilibili.com/*"
             ],
             "js": [
                 "js/jquery-2.2.0.min.js",

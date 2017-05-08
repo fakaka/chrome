@@ -1,6 +1,11 @@
 $(document).ready(function () {
     show()
     initEvent()
+
+    var kid = localStorage.getItem("kid")
+    if (kid) {
+        $('#kid').text(kid)
+    }
 })
 
 function initEvent() {
@@ -10,11 +15,31 @@ function initEvent() {
     })
 
     // 获取文案
-    $("#add").bind("click", function () {
-        addContent()
+    $("#get").bind("click", function () {
+        $.ajax({
+            url: "http://120.25.92.185:3000/doc",
+            type: "GET",
+            dataType: "json",
+            success: function (res) {
+                console.log(res)
+                var contents = localStorage.getItem("contents")
+                var arr = []
+                if (contents != null && contents != undefined && contents != "") {
+                    arr = contents.split("#_#")
+                }
+                for (var i = 0; i < res.length; i++) {
+                    arr.push(res[i].content)
+                }
+                localStorage.setItem("contents", arr.join("#_#"))
+                show()
+            },
+            error: () => {
+                console.log('连接错误')
+            }
+        })
     })
 
-    // 文本框回车事件
+    // 文本框回车键事件
     $("#content").bind("keyup", function (event) {
         if (event.keyCode == 13)
             addContent()
@@ -24,6 +49,25 @@ function initEvent() {
     $("#clear").bind("click", function () {
         localStorage.removeItem("contents")
         show()
+    })
+
+    // 签到
+    $("#sign").bind("click", function () {
+        var sign = JSON.parse(localStorage.getItem("sign"))
+        if (sign && sign.items.length == 4) {
+            var kid = localStorage.getItem("kid")
+            var data = { kid: kid }
+            $.ajax({
+                url: 'http://localhost:3000/sign',
+                type: 'GET',
+                data: data,
+                success: function (res) {
+                    console.log(res.msg)
+                }
+            })
+        } else {
+            alert('请完成所有任务再签到')
+        }
     })
 }
 

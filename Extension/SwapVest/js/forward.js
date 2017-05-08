@@ -19,6 +19,9 @@ function forward(data) {
             dataType: "json",
             success: function (res) {
                 console.log(res.msg + i)
+                if (i == 10) {
+                    sendMessage('forward')
+                }
             }
         })
     }, 3500)

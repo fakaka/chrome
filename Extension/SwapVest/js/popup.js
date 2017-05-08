@@ -68,7 +68,7 @@ function initEvent() {
 
     $("#forward").bind("click", function () {
         var mid = localStorage.getItem("mid");
-        var contents = localStorage.getItem("contents").split(",");
+        var contents = localStorage.getItem("contents").split("#_#");
         var data = {
             type: "forward",
             contents: contents,

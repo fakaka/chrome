@@ -30,37 +30,39 @@ function rank_publish(data) {
             i = 0
             rank_forward()
         }
-    }, 6000)
+    }, 7000)
 }
 
 /**
  * 势力榜转发
  */
 function rank_forward() {
-    var mid = $('.WB_cardwrap.WB_feed_type.S_bg2 ').attr('mid')
-    var data = {
-        mid: 4104157558113011,
-        style_type: 2,
-        reason: forwardText + i,
-        location: 'page_100505_single_weibo',
-        pdetail: 1005053700233717,
-        rank: 0
-    }
-
-    $.ajax({
-        url: "http://weibo.com/aj/v6/mblog/forward?ajwvr=6&domain=100505&__rnd=" + new Date().getTime(),
-        type: "POST",
-        data: data,
-        dataType: "json",
-        success: function (res) {
-            console.log(res)
+    var timer = setInterval(function () {
+        var mid = $('.WB_cardwrap.WB_feed_type.S_bg2 ').attr('mid')
+        var data = {
+            mid: 4104157558113011,
+            style_type: 2,
+            reason: forwardText + i,
+            location: 'page_100505_single_weibo',
+            pdetail: 1005053700233717,
+            rank: 0
         }
-    })
-    console.log("rank_forward:" + forwardText + (i++))
-    if (i >= 6) {
-        clearInterval(timer)
-        i = 0
-        rank_forward()
-    }
+
+        $.ajax({
+            url: "http://weibo.com/aj/v6/mblog/forward?ajwvr=6&domain=100505&__rnd=" + new Date().getTime(),
+            type: "POST",
+            data: data,
+            dataType: "json",
+            success: function (res) {
+                console.log(res)
+            }
+        })
+        console.log("rank_forward:" + forwardText + (i++))
+        if (i >= 6) {
+            clearInterval(timer)
+            i = 0
+            sendMessage('rank')
+        }
+    }, 7000)
 }
 

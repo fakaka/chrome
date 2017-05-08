@@ -1,26 +1,62 @@
-init()
+var video_url = ''
+// http://int.dpool.sina.com.cn/iplookup/iplookup.php
 
-chrome.extension.onMessage.addListener(function (request, sender, sendResponse) {
-    console.log(request)
-    var current = localStorage.getItem("current")
 
-    names = JSON.parse(localStorage.getItem("names"))
-    if (request.wname) {
-        names[current].wname = request.wname
+initLocalStorage()
+
+chrome.webRequest.onResponseStarted.addListener(function (details) {
+    if (details.url.indexOf("acgvideo.com/vg") != -1) {
+        console.log(details)
+        video_url = details.url
     }
-    if (request.tname) {
-        names[current].tname = request.tname
+}, { urls: ["<all_urls>"] })
+
+chrome.extension.onMessage.addListener(function (message, sender, sendResponse) {
+    if (!message.type || message.type != 'nickname')
+        return
+
+    var current = localStorage.getItem("current")
+    names = JSON.parse(localStorage.getItem("names"))
+    if (message.wname) {
+        names[current].wname = message.wname
+    }
+    if (message.tname) {
+        names[current].tname = message.tname
     }
     localStorage.setItem("names", JSON.stringify(names))
 
-    sendResponse({ msg: "昵称保存成功" })
+    if (message.wname || request.tname) {
+        sendResponse({ msg: "昵称保存成功" })
+    } else {
+        sendResponse({ msg: "没有昵称保存" })
+    }
 })
 
+chrome.extension.onMessage.addListener(function (message, sender, sendResponse) {
+    if (message.type == 'video_url')
+        sendResponse({ url: video_url })
+})
 
-//http://int.dpool.sina.com.cn/iplookup/iplookup.php
+chrome.extension.onMessage.addListener(function (message, sender, sendResponse) {
+    if (message.type == 'sign') {
+        var item = message.item
+        console.log(item)
+        var sign = JSON.parse(localStorage.getItem("sign"))
+        if (sign.items) {
+            sign.items = []
+        }
+        for (var i = 0; i < sign.items.length; i++) {
+            if (sign.items[i] == item) {
+                sendResponse({ msg: '已存在' })
+                break
+            }
+        }
+        sign.items.push(item)
+        sendResponse({ msg: item + '添加' })
+    }
+})
 
-
-function init() {
+function initLocalStorage() {
     var current = localStorage.getItem("current")
     if (!current) {
         localStorage.setItem("current", 0)
@@ -58,5 +94,33 @@ function init() {
             }
         }
         localStorage.setItem("names", JSON.stringify(names))
+    }
+
+    var sid = localStorage.getItem("sid")
+    if (!sid) {
+        $.ajax({
+            // url: "http://120.25.92.185:3000/sign/sid",
+            url: "http://localhost:3000/sign/sid",
+            type: "GET",
+            dataType: "json",
+            success: function (res) {
+                // console.log(res)
+                localStorage.setItem("sid", res.sid)
+            },
+            error: function (res) {
+                console.log(res)
+            }
+        })
+    }
+
+    var sign = JSON.parse(localStorage.getItem("sign"))
+    // var data = {
+    //     'date': '1494217973991', items: ['rank', 'xunyee', 'baidu', 'forward']
+    // }
+    // localStorage.setItem("sign", JSON.stringify(data))
+    if (sign) {
+        if (new Date().toDateString() !== new Date(sign.date).toDateString()) {
+            localStorage.removeItem('sign')
+        }
     }
 }

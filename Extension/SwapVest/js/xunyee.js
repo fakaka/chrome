@@ -17,6 +17,7 @@ function sign(answer, answer_id) {
         success: function (res) {
             if (res.msg == "签到成功。") {
                 console.log(res.msg);
+                sendMessage('xunyee')
             } else if (res.msg == "回答错误") {
                 xunyee();
             }
