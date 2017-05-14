@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title>设置</title>
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+    <style type="text/css">
+        body {
+            padding: 10px;
+            width: 400px;
+            height: 300px;
+        }
+        
+        input {
+            width: 50px;
+        }
+        
+        input[type=checkbox] {
+            display: inline-block;
+            width: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    明星势力榜 <button class="btn btn-success btn-sm" id="rank">打 榜</button>
+    <hr>
+
+    <section>
+        <input id="num" type="number" value="10" min="1" step="1" pattern="\d+"><span> 次 </span>
+        <input id="interval" type="number" value="10" min="5" step="5" pattern="\d+"><span> 秒 </span>
+        <input type="checkbox" name="public" value="public">仅自己可见
+        <br>
+        <br>
+        <button id="repost" class="btn btn-success btn-sm">转 发</button>
+        <button id="comment" class="btn btn-success btn-sm">评 论</button>
+        <button id="comment2" class="btn btn-success btn-sm">回复评论</button>
+    </section>
+    <hr>
+    <div id="message">
+    </div>
+</body>
+<script src="js/jquery-2.2.0.min.js"></script>
+<script src="js/popup.js"></script>
+
+</html>
