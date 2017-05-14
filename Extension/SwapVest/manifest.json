@@ -47,6 +47,7 @@
                 "js/xunyee.js",
                 "js/tieba.js",
                 "js/forward.js",
+                "js/reply.js",
                 "js/controller.js"
             ]
         }

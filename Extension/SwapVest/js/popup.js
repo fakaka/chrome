@@ -89,12 +89,33 @@ function initEvent() {
             }
         })
     });
+    $("#commit").bind("click", function () {
+        var cid = localStorage.getItem("cid")
+        var contents = localStorage.getItem("contents").split("#_#")
+        var data = {
+            type: "test",
+            cid: cid,
+            contents: contents
+        }
+        sendMessage(data);
+    });
+    // $("#test").bind("click", function () {
+    //     var cid = localStorage.getItem("cid")
+    //     var contents = localStorage.getItem("contents").split("#_#")
+    //     var data = {
+    //         type: "test",
+    //         cid: cid,
+    //         contents: contents
+    //     }
+    //     sendMessage(data);
+    // });
 }
 
 function sendMessage(data) {
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
         chrome.tabs.sendMessage(tabs[0].id, data, function (response) {
-            $("#message").text(response.message);
+            if (response)
+                $("#message").text(response.message);
         });
     });
 }

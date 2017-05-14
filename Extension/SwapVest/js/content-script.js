@@ -21,6 +21,22 @@ window.onload = () => {
         console.log(data.msg)
     })
     /* 超级话题 结束 */
+    setTimeout(function () {
+        var newLi = `<li><span class="line S_line1"><a class="S_txt1 m-choose">选择</a></span></li>`
+        $('.list_con ul.clearfix').prepend(newLi)
+        $('.m-choose').click(function () {
+            var commot_div = $(this).parent().parent().parent().parent().parent().parent().parent()
+            if (commot_div.attr('node-type') == 'root_comment') {
+                var cid = commot_div.attr('comment_id')
+                console.log()
+                chrome.extension.sendMessage({ type: 'cid', cid: cid }, function (response) {
+                    if (response)
+                        console.log(response.msg)
+                })
+            }
+        })
+    }, 2000)
+
 
 }
 

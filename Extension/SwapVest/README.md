@@ -8,6 +8,9 @@ https://git.oschina.net/hairpin/chrome.git
 * ~~把b站播放和获取封面和视频整合~~
 
 ##  ChangeLog
+-- v0.7 2017-05-14
+1. add 回复评论
+
 -- v0.7 2017-05-08
 1. add b站获取封面和视频
 2. add 获取文案

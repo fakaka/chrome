@@ -1,11 +1,10 @@
 function forward(data) {
     var i = 0
-    var mid = data.mid
     var len = data.contents.length
     setInterval(function () {
         var _data = {
             appkey: "",
-            mid: mid,
+            mid: data.mid,
             mark: "",
             text: data.contents[i++ % len] + i,
             style_type: 1,

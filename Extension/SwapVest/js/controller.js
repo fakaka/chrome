@@ -10,5 +10,7 @@ chrome.extension.onMessage.addListener(function (request, sender, sendResponse) 
         // tieba()
     } else if (request.type == "forward") {
         forward(request)
+    } else if (request.type == "commit") {
+        reply(request)
     }
 })

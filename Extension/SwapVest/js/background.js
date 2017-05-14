@@ -56,6 +56,13 @@ chrome.extension.onMessage.addListener(function (message, sender, sendResponse) 
     }
 })
 
+chrome.extension.onMessage.addListener(function (message, sender, sendResponse) {
+    if (message.type == 'cid') {
+        localStorage.setItem('cid', message.cid)
+        sendResponse({ msg: 'cid = ' + message.cid + '添加成功' })
+    }
+})
+
 function initLocalStorage() {
     var current = localStorage.getItem("current")
     if (!current) {
