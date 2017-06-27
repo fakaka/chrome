@@ -25,7 +25,8 @@
     },
     "background": {
         "scripts": [
-            "js/background.js"
+            "src/js/jquery-2.2.0.min.js",
+            "src/js/background.js"
         ]
     },
     "content_scripts": [
@@ -35,7 +36,7 @@
             ],
             "js": [
                 "js/jquery-2.2.0.min.js",
-                "js/forward.js"
+                "js/content_scripts/delete.js"
             ]
         }
     ]
