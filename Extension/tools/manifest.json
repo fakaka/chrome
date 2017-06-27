@@ -6,9 +6,9 @@
     "browser_action": {
         "default_title": "工具箱",
         "default_icon": "icon.png",
-        "default_popup": "popup.html"
+        "default_popup": "view/popup.html"
     },
-    "options_page": "options.html",
+    "options_page": "view/options.html",
     "permissions": [
         "tabs",
         "notifications",
@@ -25,8 +25,8 @@
     },
     "background": {
         "scripts": [
-            "src/js/jquery-2.2.0.min.js",
-            "src/js/background.js"
+            "js/lib/jquery-2.2.0.min.js",
+            "js/background/background.js"
         ]
     },
     "content_scripts": [
@@ -35,8 +35,9 @@
                 "<all_urls>"
             ],
             "js": [
-                "js/jquery-2.2.0.min.js",
-                "js/content_scripts/delete.js"
+                "js/lib/jquery-2.2.0.min.js",
+                "js/content-scripts/bilibili.js",
+                "js/content-scripts/index.js"
             ]
         }
     ]

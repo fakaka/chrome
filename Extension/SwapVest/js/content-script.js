@@ -3,7 +3,7 @@ window.onload = () => {
     var url = window.location.href
 
     if (url.startsWith('http://www.bilibili.com/video')) {
-        initBilibili()
+        // initBilibili()
     } else if (url.indexOf('weibo.com') != -1 || url.indexOf('baidu.com')) {
         nickname()
     }
