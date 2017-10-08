@@ -2,7 +2,8 @@
     "name": "工具箱",
     "version": "0.0.1",
     "manifest_version": 2,
-    "description": "各种工具箱",
+    "description": "Chrome 工具箱",
+    // "default_locale": "zh_CN",
     "browser_action": {
         "default_title": "工具箱",
         "default_icon": "icon.png",
