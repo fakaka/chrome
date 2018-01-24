@@ -13,11 +13,10 @@
 - [ ] alt选择链接文字
 - [ ] 回到顶部
 - [ ] 一键送礼
-- [ ] 
 
 
 ## Link
-[我的主页](http://githun.com/fakaka)
+[我的主页](http://github.com/fakaka)
 
 ## ChangeLog
 

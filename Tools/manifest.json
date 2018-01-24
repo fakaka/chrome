@@ -27,6 +27,7 @@
     "background": {
         "scripts": [
             "js/lib/jquery-2.2.0.min.js",
+            "js/background/JsonValues.js",
             "js/background/background.js"
         ]
     },
