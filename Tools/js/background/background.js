@@ -124,3 +124,15 @@ function createContextMenu() {
     })
 }
 
+
+// chrome.webRequest.onResponseStarted.addListener(function (details) {
+//     if (details.url.indexOf("acgvideo.com/vg") != -1) {
+//         console.log(details)
+//         video_url = details.url
+//     }
+// }, { urls: ["<all_urls>"] })
+
+// chrome.extension.onMessage.addListener(function (message, sender, sendResponse) {
+//     if (message.type == 'video_url')
+//         sendResponse({ url: video_url })
+// })
