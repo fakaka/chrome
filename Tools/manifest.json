@@ -25,7 +25,7 @@
     },
     "background": {
         "scripts": [
-            "js/lib/jquery-2.2.0.min.js",
+            "js/lib/jquery-3.3.1.js",
             "js/background/JsonValues.js",
             "js/background/background.js"
         ]
@@ -36,8 +36,11 @@
                 "<all_urls>"
             ],
             "js": [
-                "js/lib/jquery-2.2.0.min.js",
+                "js/lib/jquery-3.3.1.js",
                 "js/content-scripts/bilibili.js",
+                "js/content-scripts/weibo.js",
+                "js/content-scripts/huaban.js",
+                "js/content-scripts/pixiv.js",
                 "js/content-scripts/index.js"
             ]
         }
