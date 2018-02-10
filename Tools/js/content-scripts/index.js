@@ -11,5 +11,7 @@ window.onload = () => {
         huaban()
     } else if (url.startsWith('https://www.pixiv.net/member.php?id=')) {
         pixiv()
+    } else if (url.startsWith('https://pan.baidu.com')) {
+        baiduyun()
     }
 }

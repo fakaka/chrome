@@ -15,6 +15,7 @@
         "webRequest",
         "downloads",
         "contextMenus",
+        "clipboardRead",
         "https://*/*",
         "http://*/*"
     ],
@@ -40,6 +41,7 @@
                 "js/content-scripts/weibo.js",
                 "js/content-scripts/huaban.js",
                 "js/content-scripts/pixiv.js",
+                "js/content-scripts/baiduyun.js",
                 "js/content-scripts/index.js"
             ]
         }
