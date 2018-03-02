@@ -42,6 +42,7 @@
                 "js/content-scripts/huaban.js",
                 "js/content-scripts/pixiv.js",
                 "js/content-scripts/baiduyun.js",
+                "js/content-scripts/douyu.js",
                 "js/content-scripts/index.js"
             ]
         }
