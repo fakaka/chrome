@@ -35,7 +35,7 @@ function bilibili() {
 
 function bilibiliLive() {
     setTimeout(() => {
-        // sign()
+        sign()
         getBagList()
     }, 1000)
 }
@@ -46,7 +46,7 @@ function bilibiliLive() {
 function sign() {
     $.getJSON('https://api.live.bilibili.com/sign/doSign', function (res) {
         // console.log(res)
-        console.log(res.msg)
+        console.log('sign : ' + res.msg)
     })
 }
 
@@ -55,7 +55,7 @@ function getBagList() {
         // console.log(res)
         if (res.code == 0) {
             var list = res.data.list
-            console.log(list)
+            // console.log(list)
             for (let i = 0; i < list.length; i++) {
                 const item = list[i]
                 bagSend(item.bag_id, item.gift_id, item.gift_num)
