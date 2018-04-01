@@ -28,14 +28,17 @@ function insertToolbar() {
 
     var div_inner =
         `
-        <div class="back_to_top">
+        <div class="back_to_top" title="回到顶部">
             <span>^</span>
         </div>
-        <div class="prev_tab">
+        <div class="prev_tab" title="上一个标签页">
             <span><</span>
         </div>
-        <div class="next_tab">
+        <div class="next_tab" title="下一个标签页">
             <span>></span>
+        </div>
+        <div class="close" title="关闭">
+            <span>x</span>
         </div>
         `
 
@@ -70,6 +73,12 @@ function insertToolbar() {
     $('.next_tab').click(function () {
         sendMessage('tab', { action: 'next' })
     })
+    $('#hairpin_tools .close').click(function () {
+        console.log('close')
+        $("#hairpin_tools").hide()
+    })
+
+
 
 }
 
