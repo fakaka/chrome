@@ -15,10 +15,10 @@
     box-shadow: 0 0 6px rgba(0, 0, 0, .12);
     border-radius: 50%;
     cursor: pointer;
-    -webkit-user-select:none;
-    -moz-user-select:none;
-    -ms-user-select:none;
-    user-select:none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 #hairpin_tools>.back_to_top {

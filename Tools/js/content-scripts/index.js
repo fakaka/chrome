@@ -37,7 +37,7 @@ function insertToolbar() {
         <div class="next_tab" title="下一个标签页">
             <span>></span>
         </div>
-        <div class="close" title="关闭">
+        <div class="close" title="关闭或隐藏">
             <span>x</span>
         </div>
         `
@@ -74,11 +74,14 @@ function insertToolbar() {
         sendMessage('tab', { action: 'next' })
     })
     $('#hairpin_tools .close').click(function () {
-        console.log('close')
-        $("#hairpin_tools").hide()
+        // $('.back_to_top').toggle()
+        $('.prev_tab').toggle(200)
+        $('.next_tab').toggle(200)
     })
 
-
+    $('#hairpin_tools .close').dblclick(function () {
+        $("#hairpin_tools").hide()
+    })
 
 }
 

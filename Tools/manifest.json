@@ -27,6 +27,7 @@
     "background": {
         "scripts": [
             "js/lib/jquery-3.3.1.js",
+            "js/background/liveOnTab.js",
             "js/background/background.js"
         ]
     },
@@ -43,6 +44,7 @@
                 "js/content-scripts/pixiv.js",
                 "js/content-scripts/baiduyun.js",
                 "js/content-scripts/douyu.js",
+                "js/content-scripts/altSelect.js",
                 "js/content-scripts/index.js"
             ],
             "css": ["css/insert.css"]
