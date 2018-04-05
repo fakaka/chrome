@@ -1,16 +1,16 @@
 function bilibili() {
     console.log('bilibili')
-
-    var picUrl = $(".cover_image").attr("src")
-    var reportModule = $(".arc-toolbar")
+    
+    var picUrl = $('meta[itemprop=image]').attr('content')
+    var reportModule = $(".s_tag")
     var divWidth = reportModule.width()
     var myModule =
-        `<div style="width:${divWidth}px;margin:0 auto;margin-top:10px;background: #fff;color: #444;border: 1px solid #e5e9ef;border-radius: 4px;">
+        `<div id="bilibili_helper">
             <div style="padding:5px;">
-                <img id="mCover" src ="${picUrl}" width="200px" style="border:1px solid #e5e9ef;border-radius:3px;"/>
+                <img class="cover" src ="${picUrl}"/>
             </div>
         </div>`
-    reportModule.after(myModule)
+    reportModule.before(myModule)
 
     // <a id="downloadVideo" href="javascript:void(0)" class="">下载视频</a>
     // $("#downloadVideo").click(function () {
@@ -31,11 +31,10 @@ function bilibili() {
 
 }
 
-/** Live 版块  */
-
+/** Live 模块  */
 function bilibiliLive() {
+    sign()
     setTimeout(() => {
-        sign()
         getBagList()
     }, 1000)
 }

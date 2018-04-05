@@ -24,3 +24,19 @@
 #hairpin_tools>.back_to_top {
     line-height: 45px;
 }
+
+/* b 站助手 */
+#bilibili_helper {
+    margin: 0 auto;
+    margin-top: 10px;
+    background: #fff;
+    color: #444;
+    border: 1px solid #e5e9ef;
+    border-radius: 4px;
+}
+
+#bilibili_helper .cover {
+    width: 200px;
+    border: 1px solid #e5e9ef;
+    border-radius: 3px;
+}
