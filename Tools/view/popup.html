@@ -3,9 +3,10 @@
 
 <head>
     <title>设置</title>
-    <!--<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />-->
     <style type="text/css">
-
+        #qrcode {
+            margin: 10px;
+        }
     </style>
 </head>
 
@@ -13,7 +14,10 @@
     <div>
         popup
     </div>
-    <script src="../js/lib/jquery-2.2.0.min.js"></script>
+    <div id="qrcode"></div>
+    <script src="../js/lib/jquery-3.3.1.js"></script>
+    <script src="../js/lib/jquery-qrcode-0.14.0.min.js"></script>
+    <script src="../js/background/qrcode.js"></script>
     <script src="../js/background/popup.js"></script>
 </body>
 
