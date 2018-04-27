@@ -2,11 +2,17 @@ window.onload = () => {
     var url = window.location.href
     console.log(url)
 
-    if (url.startsWith('http://www.bilibili.com/video/av') || url.startsWith('https://www.bilibili.com/video/av')) {
+    if (
+        url.startsWith('http://www.bilibili.com/video/av') ||
+        url.startsWith('https://www.bilibili.com/video/av')
+    ) {
         bilibili()
     } else if (url.startsWith('https://live.bilibili.com/118')) {
         bilibiliLive()
-    } else if (url.startsWith('http://weibo.com') || url.startsWith('https://weibo.com')) {
+    } else if (
+        url.startsWith('http://weibo.com') ||
+        url.startsWith('https://weibo.com')
+    ) {
         weibo()
     } else if (url.startsWith('http://huaban.com/boards/')) {
         huaban()
@@ -18,16 +24,16 @@ window.onload = () => {
         douyu()
     }
 
-    insertToolbar()
+    if ($('body').width() > 800) {
+        insertToolbar()
+    }
 }
 
 function insertToolbar() {
-
     var div_toolbar = document.createElement('div')
     div_toolbar.id = 'hairpin_tools'
 
-    var div_inner =
-        `
+    var div_inner = `
         <div class="back_to_top" title="回到顶部">
             <span>^</span>
         </div>
@@ -45,52 +51,53 @@ function insertToolbar() {
     div_toolbar.innerHTML = div_inner
     document.body.appendChild(div_toolbar)
 
-    // 当滚动条的垂直位置大于浏览器所能看到的页面的那部分的高度时，回到顶部按钮就显示 
+    // 当滚动条的垂直位置大于浏览器所能看到的页面的那部分的高度时，回到顶部按钮就显示
     var backToTop = $('.back_to_top')
     backToTop.hide()
     $(window).on('scroll', () => {
         if ($(window).scrollTop() > $(window).height() / 2) {
             backToTop.fadeIn()
-        }
-        else {
+        } else {
             backToTop.fadeOut()
         }
     })
     $(window).trigger('scroll')
 
-    backToTop.click(function () {
-        $('html,body').animate({
-            scrollTop: 0
-        }, 800);
+    backToTop.click(function() {
+        $('html,body').animate(
+            {
+                scrollTop: 0
+            },
+            800
+        )
     })
 
     // 前一个标签页
-    $('.prev_tab').click(function () {
+    $('.prev_tab').click(function() {
         sendMessage('tab', { action: 'prev' })
     })
 
     // 后一个标签页
-    $('.next_tab').click(function () {
+    $('.next_tab').click(function() {
         sendMessage('tab', { action: 'next' })
     })
-    $('#hairpin_tools .close').click(function () {
+    $('#hairpin_tools .close').click(function() {
         // $('.back_to_top').toggle()
         $('.prev_tab').toggle(200)
         $('.next_tab').toggle(200)
     })
 
-    $('#hairpin_tools .close').dblclick(function () {
-        $("#hairpin_tools").hide()
+    $('#hairpin_tools .close').dblclick(function() {
+        $('#hairpin_tools').hide()
     })
-
 }
-
 
 function sendMessage(name, data) {
     var request = {
-        name, data
+        name,
+        data
     }
-    chrome.extension.sendMessage(request, function (response) {
+    chrome.extension.sendMessage(request, function(response) {
         if (response) {
             // console.log(response)
         }
