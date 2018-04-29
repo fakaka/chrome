@@ -24,7 +24,7 @@ window.onload = () => {
         douyu()
     }
 
-    if ($('body').width() > 800) {
+    if ($('body').width() > 800 && !url.startsWith('http://localhost')) {
         insertToolbar()
     }
 }
@@ -43,7 +43,7 @@ function insertToolbar() {
         <div class="next_tab" title="下一个标签页">
             <span>></span>
         </div>
-        <div class="close" title="关闭或隐藏">
+        <div class="hp_close" title="关闭或隐藏">
             <span>x</span>
         </div>
         `
@@ -81,13 +81,13 @@ function insertToolbar() {
     $('.next_tab').click(function() {
         sendMessage('tab', { action: 'next' })
     })
-    $('#hairpin_tools .close').click(function() {
+    $('#hairpin_tools .hp_close').click(function() {
         // $('.back_to_top').toggle()
         $('.prev_tab').toggle(200)
         $('.next_tab').toggle(200)
     })
 
-    $('#hairpin_tools .close').dblclick(function() {
+    $('#hairpin_tools .hp_close').dblclick(function() {
         $('#hairpin_tools').hide()
     })
 }
