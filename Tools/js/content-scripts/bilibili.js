@@ -1,11 +1,10 @@
 function bilibili() {
     console.log('bilibili')
-    
+
     var picUrl = $('meta[itemprop=image]').attr('content')
-    var reportModule = $(".s_tag")
+    var reportModule = $('.s_tag')
     var divWidth = reportModule.width()
-    var myModule =
-        `<div id="bilibili_helper">
+    var myModule = `<div id="bilibili_helper">
             <div style="padding:5px;">
                 <img class="cover" src ="${picUrl}"/>
             </div>
@@ -29,6 +28,20 @@ function bilibili() {
     //     })
     // })
 
+    // 播放器宽屏自适应
+    var adjustDiv = `<div id="adjust" class="bgray-btn show bgray-btn-help">适应</div>`
+    var wrapDiv = $('.bgray-btn-wrap')
+    wrapDiv.append(adjustDiv)
+
+    $('#adjust').click(function() {
+        var widescreen = $('#bilibiliPlayer .bilibili-player-video-btn-widescreen')
+        if (widescreen.find('i').hasClass('icon-24wideoff')) {
+            widescreen.click()
+        }
+        
+        var top = document.getElementsByClassName('player-box')[0].offsetTop
+        $('body,html').scrollTop(top)
+    })
 }
 
 /** Live 模块  */
@@ -39,18 +52,18 @@ function bilibiliLive() {
     }, 1000)
 }
 
-/** 
- * 直播签到 
+/**
+ * 直播签到
  */
 function sign() {
-    $.getJSON('https://api.live.bilibili.com/sign/doSign', function (res) {
+    $.getJSON('https://api.live.bilibili.com/sign/doSign', function(res) {
         // console.log(res)
         console.log('sign : ' + res.msg)
     })
 }
 
 function getBagList() {
-    $.getJSON('https://api.live.bilibili.com/gift/v2/gift/bag_list', function (res) {
+    $.getJSON('https://api.live.bilibili.com/gift/v2/gift/bag_list', function(res) {
         // console.log(res)
         if (res.code == 0) {
             var list = res.data.list
@@ -64,10 +77,10 @@ function getBagList() {
 }
 
 /**
- * 
- * @param {*} bag_id 
- * @param {*} gift_id 
- * @param {*} gift_num 
+ *
+ * @param {*} bag_id
+ * @param {*} gift_id
+ * @param {*} gift_num
  */
 function bagSend(bag_id, gift_id, gift_num) {
     // console.log(bag_id, gift_id, gift_num)
@@ -89,10 +102,9 @@ function bagSend(bag_id, gift_id, gift_num) {
         url: 'https://api.live.bilibili.com/gift/v2/live/bag_send',
         type: 'POST',
         data: data,
-        dataType: "json",
-        success: function (res) {
+        dataType: 'json',
+        success: function(res) {
             console.log(res.msg)
         }
     })
 }
-
