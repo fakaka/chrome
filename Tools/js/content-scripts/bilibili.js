@@ -28,20 +28,6 @@ function bilibili() {
     //     })
     // })
 
-    // 播放器宽屏自适应
-    var adjustDiv = `<div id="adjust" class="bgray-btn show bgray-btn-help">适应</div>`
-    var wrapDiv = $('.bgray-btn-wrap')
-    wrapDiv.append(adjustDiv)
-
-    $('#adjust').click(function() {
-        var widescreen = $('#bilibiliPlayer .bilibili-player-video-btn-widescreen')
-        if (widescreen.find('i').hasClass('icon-24wideoff')) {
-            widescreen.click()
-        }
-        
-        var top = document.getElementsByClassName('player-box')[0].offsetTop
-        $('body,html').scrollTop(top)
-    })
 }
 
 /** Live 模块  */
