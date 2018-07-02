@@ -6,13 +6,23 @@ window.onload = () => {
         url.startsWith('http://www.bilibili.com/video/av') ||
         url.startsWith('https://www.bilibili.com/video/av')
     ) {
+        let data = Day.getTodayInfo('bilibili')
+        var d = new Date().toLocaleDateString()
+        if (data.visit && data.visit[d]) {
+            if (data.visit[d] > 5) {
+                alert('今日访问已达上限，超过 ' + (data.visit[d] - 5) + ' 次')
+            }
+            data.visit[d]++
+        } else {
+            data.visit = {}
+            data.visit[d] = 1
+        }
+
+        Day.setTodayInfo('bilibili', data)
         bilibili()
     } else if (url.startsWith('https://live.bilibili.com/118')) {
         bilibiliLive()
-    } else if (
-        url.startsWith('http://weibo.com') ||
-        url.startsWith('https://weibo.com')
-    ) {
+    } else if (url.startsWith('http://weibo.com') || url.startsWith('https://weibo.com')) {
         weibo()
     } else if (url.startsWith('http://huaban.com/boards/')) {
         huaban()
