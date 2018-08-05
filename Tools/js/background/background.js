@@ -40,14 +40,14 @@ function changeTab(message) {
     })
 }
 
-function notify(params) {
+function notify(message) {
     chrome.notifications.create('name-for-notification', {
         type: 'basic',
         iconUrl: '../img/icon_48.png',
-        title: 'This is a notification',
-        message: 'hello there!'
+        title: '',
+        message: message
     })
-    chrome.notifications.onClicked.addListener(function(notificationId) {
+    chrome.notifications.onClicked.addListener(notificationId => {
         console.log(notificationId)
     })
 }

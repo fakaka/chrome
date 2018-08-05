@@ -10,7 +10,10 @@ window.onload = () => {
         var d = new Date().toLocaleDateString()
         if (data.visit && data.visit[d]) {
             if (data.visit[d] > 5) {
-                alert('今日访问已达上限，超过 ' + (data.visit[d] - 5) + ' 次')
+                // alert('今日访问已达上限，超过 ' + (data.visit[d] - 5) + ' 次')
+                if (!confirm('今日访问已达上限，超过 ' + (data.visit[d] - 5) + ' 次')) {
+                    console.log('关闭当前标签页')
+                }
             }
             data.visit[d]++
         } else {

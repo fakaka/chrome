@@ -27,11 +27,14 @@ function bilibili() {
     //         document.body.removeChild(a)
     //     })
     // })
-
 }
 
+var giftCount
+var giftCurr
 /** Live 模块  */
 function bilibiliLive() {
+    giftCount = 0
+    giftCurr = 0
     sign()
     setTimeout(() => {
         getBagList()
@@ -54,6 +57,7 @@ function getBagList() {
         if (res.code == 0) {
             var list = res.data.list
             // console.log(list)
+            giftCount = list.length
             for (let i = 0; i < list.length; i++) {
                 const item = list[i]
                 bagSend(item.bag_id, item.gift_id, item.gift_num)
@@ -91,6 +95,10 @@ function bagSend(bag_id, gift_id, gift_num) {
         dataType: 'json',
         success: function(res) {
             console.log(res.msg)
+            giftCurr += 1
+            if (giftCurr >= giftCount) {
+                notify('送礼成功')
+            }
         }
     })
 }
