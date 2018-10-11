@@ -28,6 +28,7 @@
     "background": {
         "scripts": [
             "js/lib/jquery-3.3.1.js",
+            "js/background/weibo.js",
             "js/background/liveOnTab.js",
             "js/background/background.js"
         ]

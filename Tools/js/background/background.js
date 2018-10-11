@@ -5,6 +5,15 @@ function createContextMenu() {
     chrome.contextMenus.removeAll()
     var UA_parent = chrome.contextMenus.create({ title: '切换User-Agent' })
     var QRcode_parent = chrome.contextMenus.create({ title: '生成页面二维码' })
+    chrome.contextMenus.create({
+        title: '查看po主',
+        contexts: ['image'],
+        targetUrlPatterns: ['*://*.sinaimg.cn/*'],
+        onclick: function(info, tab) {
+            sourceUrl = 'https://weibo.com/u/' + decode(info.srcUrl)
+            chrome.tabs.create({ url: sourceUrl })
+        }
+    })
 }
 
 chrome.extension.onMessage.addListener(function(message, sender, sendResponse) {

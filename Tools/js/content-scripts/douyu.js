@@ -27,7 +27,8 @@ function giftSend(prop_id, count) {
         sid: 4168448,
         did: 2003187,
         rid: 69964,
-        is_jz: 0
+        is_jz: 0,
+        // sdn: 22
     }
 
     for (let index = 0; index < count; index++) {

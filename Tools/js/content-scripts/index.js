@@ -37,7 +37,11 @@ window.onload = () => {
         douyu()
     }
 
-    if ($('body').width() > 800 && !url.startsWith('http://localhost')) {
+    if (
+        $('body').width() > 800 &&
+        !url.startsWith('http://localhost') &&
+        !url.startsWith('file:///')
+    ) {
         insertToolbar()
     }
 }
