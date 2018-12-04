@@ -3,12 +3,12 @@ function huaban(params) {
     console.log('huaban')
 
     var imgUrls= new Array()
-    var imgs = $('#waterfall img')
+    var imgs = $('#waterfall a.layer-view img')
     // console.log(imgs)
     if (imgs) {
         imgs.each(function () {
             let thumbSrc = $(this).attr('src')
-            imgUrls.push('http' + thumbSrc.replace('_fw236', ''))
+            imgUrls.push(thumbSrc.replace('_fw236', ''))
         })
     }
 
