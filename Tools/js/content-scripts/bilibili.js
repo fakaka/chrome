@@ -2,14 +2,17 @@ function bilibili() {
     console.log('bilibili')
 
     var picUrl = $('meta[itemprop=image]').attr('content')
-    var reportModule = $('.s_tag')
+    var reportModule = $('#comment')
     var divWidth = reportModule.width()
     var myModule = `<div id="bilibili_helper">
             <div style="padding:5px;">
                 <img class="cover" src ="${picUrl}"/>
             </div>
         </div>`
-    reportModule.before(myModule)
+
+    setTimeout(() => {
+        reportModule.before(myModule)
+    }, 5000)
 
     // <a id="downloadVideo" href="javascript:void(0)" class="">下载视频</a>
     // $("#downloadVideo").click(function () {
