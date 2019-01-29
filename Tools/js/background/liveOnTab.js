@@ -6,6 +6,10 @@ function liveOnTab() {
     var activate_tab = false;
 
     function keep_two() {
+        let enableKeepTwo = localStorage.getItem('enableKeepTwo') == 'true'
+        if (!enableKeepTwo) {
+            return
+        }
         chrome.windows.getAll({ populate: true }, function (windows) {
             var tab_count = 0;
             for (var i = 0; i < windows.length; i++) {
