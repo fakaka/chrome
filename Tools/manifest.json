@@ -1,6 +1,6 @@
 ﻿{
     "name": "工具箱",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "manifest_version": 2,
     "description": "Chrome 工具箱",
     "browser_action": {

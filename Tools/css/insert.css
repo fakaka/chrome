@@ -5,14 +5,14 @@
     z-index: 20;
 }
 
-#hairpin_tools>div {
+#hairpin_tools > div {
     width: 40px;
     height: 40px;
     line-height: 40px;
     text-align: center;
-    background-color: rgba(255, 255, 255, .6);
+    background-color: rgba(255, 255, 255, 0.6);
     margin: 5px;
-    box-shadow: 0 0 6px rgba(0, 0, 0, .12);
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.12);
     border-radius: 50%;
     cursor: pointer;
     -webkit-user-select: none;
@@ -21,11 +21,12 @@
     user-select: none;
 }
 
-#hairpin_tools>.back_to_top {
+#hairpin_tools > .back_to_top {
     line-height: 45px;
 }
 
 /* b 站助手 */
+
 #bilibili_helper {
     margin: 0 auto;
     margin-top: 10px;
