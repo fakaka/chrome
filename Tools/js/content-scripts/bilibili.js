@@ -1,4 +1,7 @@
 function bilibili() {
+
+    checkLimit()
+
     console.log('bilibili')
 
     var picUrl = $('meta[itemprop=image]').attr('content')
@@ -30,6 +33,29 @@ function bilibili() {
     //         document.body.removeChild(a)
     //     })
     // })
+}
+
+/**
+ * 获取访问限制
+ * TODO 从远程获取
+ */
+function checkLimit() {
+    let data = Day.getTodayInfo('bilibili')
+    var today = new Date().toLocaleDateString()
+    if (data.visit && data.visit[today]) {
+        if (data.visit[today] > 5) {
+            // alert('今日访问已达上限，超过 ' + (data.visit[d] - 5) + ' 次')
+            if (!confirm('今日访问已达上限，超过 ' + (data.visit[today] - 5) + ' 次')) {
+                console.log('关闭当前标签页')
+            }
+        }
+        data.visit[today]++
+    } else {
+        data.visit = {}
+        data.visit[today] = 1
+    }
+
+    Day.setTodayInfo('bilibili', data)
 }
 
 var giftCount

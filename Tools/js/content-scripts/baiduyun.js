@@ -12,10 +12,7 @@ function pastePassword() {
     if (document.execCommand) {
         if (element.setSelectionRange) {
             element.focus()
-            element.setSelectionRange(
-                element.value.length,
-                element.value.length
-            )
+            element.setSelectionRange(element.value.length, element.value.length)
         } else if (element.createTextRange) {
             var range = element.createTextRange()
             range.collapse(true)
@@ -25,7 +22,9 @@ function pastePassword() {
         }
         document.execCommand('paste')
     }
-    if (element.value.length != 4) {
+    if (element.value.trim().length != 4) {
         element.value = ''
+    } else {
+        setTimeout(() => pastePassword, 1000)
     }
 }

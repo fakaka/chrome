@@ -6,22 +6,6 @@ window.onload = () => {
         url.startsWith('http://www.bilibili.com/video/av') ||
         url.startsWith('https://www.bilibili.com/video/av')
     ) {
-        let data = Day.getTodayInfo('bilibili')
-        var d = new Date().toLocaleDateString()
-        if (data.visit && data.visit[d]) {
-            if (data.visit[d] > 5) {
-                // alert('今日访问已达上限，超过 ' + (data.visit[d] - 5) + ' 次')
-                if (!confirm('今日访问已达上限，超过 ' + (data.visit[d] - 5) + ' 次')) {
-                    console.log('关闭当前标签页')
-                }
-            }
-            data.visit[d]++
-        } else {
-            data.visit = {}
-            data.visit[d] = 1
-        }
-
-        Day.setTodayInfo('bilibili', data)
         bilibili()
     } else if (url.startsWith('https://live.bilibili.com/118')) {
         bilibiliLive()
@@ -42,6 +26,7 @@ window.onload = () => {
         !url.startsWith('http://localhost') &&
         !url.startsWith('file:///')
     ) {
+        // 获取是否开启工具按钮
         insertToolbar()
     }
 }
