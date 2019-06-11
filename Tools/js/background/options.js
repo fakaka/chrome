@@ -11,6 +11,12 @@ let enableKeepTwo = localStorage.getItem('enableKeepTwo')
 $('#keepTwo').attr('checked', enableKeepTwo == 'true')
 
 $('#keepTwo').change(function(_) {
-    console.log($(this))
     localStorage.setItem('enableKeepTwo', $(this).prop('checked'))
+})
+
+let enableToolbar = localStorage.getItem('enableToolbar')
+$('#toolbar').attr('checked', enableToolbar == 'true')
+
+$('#toolbar').change(function(_) {
+    localStorage.setItem('enableToolbar', $(this).prop('checked'))
 })

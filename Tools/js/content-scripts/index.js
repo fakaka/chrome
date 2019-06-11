@@ -2,10 +2,7 @@ window.onload = () => {
     var url = window.location.href
     console.log(url)
 
-    if (
-        url.startsWith('http://www.bilibili.com/video/av') ||
-        url.startsWith('https://www.bilibili.com/video/av')
-    ) {
+    if (url.startsWith('http://www.bilibili.com/video/av') || url.startsWith('https://www.bilibili.com/video/av')) {
         bilibili()
     } else if (url.startsWith('https://live.bilibili.com/118')) {
         bilibiliLive()
@@ -21,13 +18,21 @@ window.onload = () => {
         douyu()
     }
 
-    if (
-        $('body').width() > 800 &&
-        !url.startsWith('http://localhost') &&
-        !url.startsWith('file:///')
-    ) {
+    if ($('body').width() > 800 && !url.startsWith('http://localhost') && !url.startsWith('file:///')) {
         // 获取是否开启工具按钮
-        insertToolbar()
+        var request = {
+            name: 'storage',
+            data: {
+                key: 'enableToolbar'
+            }
+        }
+        chrome.extension.sendMessage(request, function(response) {
+            if (response == 'true') {
+                // console.log(response)
+                insertToolbar()
+            }
+        })
+
     }
 }
 

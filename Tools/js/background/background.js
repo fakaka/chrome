@@ -23,6 +23,8 @@ chrome.extension.onMessage.addListener(function(message, sender, sendResponse) {
         resp = changeTab(message)
     } else if (message.name == 'notify') {
         notify(message)
+    } else if (message.name == 'storage') {
+        resp = localStorage.getItem(message.data.key)
     }
 
     sendResponse(resp)
@@ -56,7 +58,7 @@ function notify(message) {
         title: '',
         message: message
     })
-    chrome.notifications.onClicked.addListener(notificationId => {
+    chrome.notifications.onClicked.addListener((notificationId) => {
         console.log(notificationId)
     })
 }
